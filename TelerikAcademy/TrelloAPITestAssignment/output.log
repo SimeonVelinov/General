@@ -1,0 +1,26 @@
+2023-09-01 18:58:47,278 INFO  [main] Initializing WebDriver
+2023-09-01 18:58:52,756 INFO  [main] Initializing WebDriver
+2023-09-01 18:58:53,635 INFO  [main] Initializing WebDriver
+2023-09-01 18:58:54,397 INFO  [main] Clicking on element trello.loginPage.loginButton
+2023-09-01 18:58:56,579 INFO  [main] Clicking on element trello.loginPage.loginSubmitButton
+2023-09-01 18:59:00,806 INFO  [main] Initializing WebDriver
+2023-09-01 18:59:00,807 INFO  [main] Initializing WebDriver
+2023-09-01 18:59:00,846 INFO  [main] Clicking on element trello.create.boardButton
+2023-09-01 18:59:01,768 INFO  [main] Clicking on element trello.create.board.submitButton
+2023-09-01 18:59:03,181 INFO  [main] Clicking on element trello.menuButton
+2023-09-01 18:59:03,841 INFO  [main] Clicking on element trello.closeBoard
+2023-09-01 18:59:03,980 INFO  [main] Clicking on element trello.confirmClose
+2023-09-01 18:59:04,682 INFO  [main] Clicking on element trello.permaConfirmClose
+2023-09-01 18:59:04,798 INFO  [main] Clicking on element trello.confrimPermaDelete
+2023-09-01 18:59:06,506 INFO  [main] Clicking on element trello.preBoard
+2023-09-01 18:59:17,604 INFO  [main] Clicking on element trello.boardPage.addCardButton
+2023-09-01 18:59:17,742 INFO  [main] Clicking on element trello.boardPage.submitCard
+2023-09-01 18:59:17,879 INFO  [main] Clicking on element //span[@data-testid='card-name' and text()='My First Card']//ancestor::a[contains(@class, 'list-card')]
+2023-09-01 18:59:18,232 INFO  [main] Clicking on element trello.homeButton
+2023-09-01 18:59:18,565 INFO  [main] Clicking on element trello.create.boardButton
+2023-09-01 18:59:18,887 INFO  [main] Clicking on element trello.create.board.submitButton
+2023-09-01 18:59:29,376 INFO  [main] Clicking on element trello.boardPage.addListButton
+2023-09-01 18:59:29,497 INFO  [main] Clicking on element trello.boardPage.addListButton
+2023-09-01 18:59:29,578 INFO  [main] Clicking on element trello.boardPage.addCardButton
+2023-09-01 18:59:29,759 INFO  [main] Clicking on element trello.boardPage.submitCard
+2023-09-01 18:59:29,858 INFO  [main] Quitting WebDriver
