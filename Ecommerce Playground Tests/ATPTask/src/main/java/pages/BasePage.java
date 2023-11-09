@@ -19,7 +19,6 @@ public class BasePage {
 
     public void assertPageNavigated() {
         String current = utils.driver.getCurrentUrl();
-        Assertions.assertTrue(current.contains(url),
-                "Target page not navigated successfully");
+        Assertions.assertTrue(current.contains(url),"Target page not navigated successfully");
     }
 }
