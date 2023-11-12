@@ -14,19 +14,19 @@ public class CartPage extends BasePage {
 
     public void addItemToCart() {
         HomePage homePage = new HomePage();
-        utils.waitForElementClickable(By.id("mz-product-listing-image-37213259-0-0"));
-        utils.driver.findElement(By.id("mz-product-listing-image-37213259-0-0")).click();
-        utils.waitForElementClickable(By.id("entry_216842"));
-        utils.driver.findElement(By.id("entry_216842")).click();
+        utils.waitForElementClickable(By.xpath("//div[@class='image']/a[contains(@href, 'product_id=107')]"));
+        utils.driver.findElement(By.xpath("//div[@class='image']/a[contains(@href, 'product_id=107')]")).click();
+        utils.waitForElementClickable(By.xpath("//div[contains(@class, 'order-1')]/button[contains(@class, 'button-cart')]"));
+        utils.driver.findElement(By.xpath("//div[contains(@class, 'order-1')]/button[contains(@class, 'button-cart')]")).click();
         utils.waitForElementClickable
-                (By.xpath("//span[contains(@class, 'cart-item-total') and text()='1']"));
+                (By.xpath("//div[@class='cart-icon']/span[text()='1']"));
     }
 
     public void removeItemFromCart() {
         LOGGER.info("Removing item from cart");
-        utils.driver.findElement(By.xpath("//button[@class='btn btn-danger']")).click();
-        utils.waitForElementPresent(By.xpath("//a[@class='btn btn-primary']"));
-        utils.assertElementNotPresent(By.xpath("//button[@class='btn btn-danger']"));
+        utils.driver.findElement(By.xpath("//div[@class='input-group-append']/button[@type='button']")).click();
+        utils.waitForElementPresent(By.xpath("//a[text()='Continue']"));
+        utils.assertElementNotPresent(By.xpath("//div[@class='input-group-append']/button[@type='button']"));
     }
 
     public void updateItemQuantity(String i) {
@@ -46,8 +46,8 @@ public class CartPage extends BasePage {
     }
 
     public void assertItemAddedToCart() {
-        utils.assertElementNotPresent(By.xpath("//span[contains(@class, 'cart-item-total') and text()='0']"));
-        utils.assertElementPresent(By.xpath("//span[contains(@class, 'cart-item-total') and text()='1']"));
+        utils.assertElementNotPresent(By.xpath("//div[@class='cart-icon']/span[text()='0']"));
+        utils.assertElementPresent(By.xpath("//div[@class='cart-icon']/span[text()='1']"));
         utils.assertElementPresent(By.xpath("//a[contains(@class, 'btn-primary') and text()='Checkout']"));
     }
 
@@ -64,8 +64,8 @@ public class CartPage extends BasePage {
     }
 
     public void assertItemRemovedFromCart() {
-        utils.assertElementNotPresent(By.xpath("//span[contains(@class, 'cart-item-total') and text()='1']"));
-        utils.assertElementPresent(By.xpath("//span[contains(@class, 'cart-item-total') and text()='0']"));
+        utils.assertElementNotPresent(By.xpath("//div[@class='cart-icon']/span[text()='1']"));
+        utils.assertElementPresent(By.xpath("//div[@class='cart-icon']/span[text()='0']"));
     }
 
     public void checkoutPageNavigated() {

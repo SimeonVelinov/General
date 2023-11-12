@@ -16,31 +16,35 @@ public class HomePage extends BasePage {
 
     public void selectCategoryFromMenu(int i) {
         utils.waitForElementClickable(
-                By.xpath("//a[@class='icon-left both text-reset' and //a[@aria-label='Shop by Category']]"));
+                By.xpath("//div[contains(@class, 'shop-by-category')]"));
         utils.driver.findElement(
-                By.xpath("//a[@class='icon-left both text-reset' and //a[@aria-label='Shop by Category']]")).click();
+                By.xpath("//div[contains(@class, 'shop-by-category')]")).click();
         utils.waitForElementClickable(
-                By.xpath(String.format("//li[@class='nav-item' and ancestor::div[contains(@class, 'active')]][%d]", i)));
+                By.xpath("//nav[contains(@class, 'navbar-light')]" +
+                        "//ul[@class='navbar-nav vertical']/li[@class='nav-item']"+String.format("[%d]", i)));
         utils.waitForElementClickable(
-                By.xpath(String.format("//li[@class='nav-item' and ancestor::div[contains(@class, 'active')]][%d]", i)));
+                By.xpath("//nav[contains(@class, 'navbar-light')]" +
+                        "//ul[@class='navbar-nav vertical']/li[@class='nav-item']"+String.format("[%d]", i)));
         while (title.isEmpty()) {
             title = utils.driver.findElement(By.xpath(
-                    String.format("//li[@class='nav-item' and ancestor::div[contains(@class, 'active')]][%d]" +
-                            "/descendant::span[@class='title']", i))).getText();
+                    "//li[@class='nav-item' and ancestor::div[contains(@class, 'active')]]"
+                            + String.format("[%d]", i) +
+                            "/descendant::span[@class='title']")).getText();
         }
         LOGGER.info(String.format("Selecting category: %s", title));
         utils.driver.findElement(
-                By.xpath(String.format("//li[@class='nav-item' and ancestor::div[contains(@class, 'active')]][%d]", i))).click();
+                By.xpath("//nav[contains(@class, 'navbar-light')]" +
+                        "//ul[@class='navbar-nav vertical']/li[@class='nav-item']"+String.format("[%d]", i))).click();
     }
 
     public void selectCategoryFromMegaMenu(String selector) {
         utils.waitForElementClickable(By.xpath("//li[contains(@class, 'mega-menu')]"));
         utils.actions.moveToElement(
-                utils.driver.findElement(By.xpath("//li[contains(@class, 'mega-menu')]"))).perform();
-        utils.waitForElementClickable(By.xpath(String.format("//a[@title='%s']", selector)));
+                utils.driver.findElement(By.xpath("//li[contains(@class, 'mega-menu')]/a[@role='button']"))).perform();
+        utils.waitForElementClickable(By.xpath("//a[@title=" + String.format("'%s']", selector)));
         title = selector;
         LOGGER.info(String.format("Selecting category: %s", selector));
-        utils.driver.findElement(By.xpath(String.format("//a[@title='%s']", selector))).click();
+        utils.driver.findElement(By.xpath("//a[@title=" + String.format("'%s']", selector))).click();
     }
 
     public String selectItemFromMainCarousel(int i) {
@@ -48,8 +52,10 @@ public class HomePage extends BasePage {
                 (By.xpath(
                         "//div[contains(@class, 'entry-design') and descendant::div[@class='carousel-item active']]"));
         utils.driver.findElement(
-                By.xpath(String.format(
-                        "//li[@data-slide-to='%d' and ancestor::div[contains(@class, 'entry-design')]]", i))).click();
+                By.xpath(
+                        "//li[@data-slide-to="
+                                + String.format("'%d'", i)
+                                + "and ancestor::div[contains(@class, 'entry-design')]]")).click();
         utils.waitForElementClickable(
                 By.xpath(
                         "//div[contains(@class, 'entry-design') and descendant::div[@class='carousel-item active']]"));
