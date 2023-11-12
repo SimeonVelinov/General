@@ -34,10 +34,10 @@ public class CartPage extends BasePage {
         utils.driver.findElement(By.xpath("//input[@value='1']")).click();
         utils.typeValueInField(i, By.xpath("//input[@value='1']"));
         LOGGER.info(String.format("Updating quantity of item in cart; new value: %s", i));
-        utils.waitForElementClickable
-                (By.xpath("//button[@type='submit' and ancestor::div[@class='input-group-append']]"));
-        utils.driver.findElement
-                (By.xpath("//button[@type='submit' and ancestor::div[@class='input-group-append']]")).click();
+        utils.waitForElementClickable(
+                By.xpath("//button[@type='submit' and ancestor::div[@class='input-group-append']]"));
+        utils.driver.findElement(
+                By.xpath("//button[@type='submit' and ancestor::div[@class='input-group-append']]")).click();
     }
 
     public void proceedToCheckout() {
@@ -58,8 +58,8 @@ public class CartPage extends BasePage {
                 removeItemFromCart();
             }
         } catch (Exception e) {
-            utils.assertElementNotPresent
-                    (By.xpath("//button[@type='submit' and ancestor::div[@class='input-group-append']]"));
+            utils.assertElementNotPresent(
+                    By.xpath("//button[@type='submit' and ancestor::div[@class='input-group-append']]"));
         }
     }
 

@@ -2,7 +2,6 @@ import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import org.main.Utils;
-import org.openqa.selenium.By;
 import pages.CartPage;
 
 public class CartTests extends CartPage {
