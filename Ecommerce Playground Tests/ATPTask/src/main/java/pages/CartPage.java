@@ -35,9 +35,9 @@ public class CartPage extends BasePage {
         utils.typeValueInField(i, By.xpath("//input[@value='1']"));
         LOGGER.info(String.format("Updating quantity of item in cart; new value: %s", i));
         utils.waitForElementClickable(
-                By.xpath("//button[@type='submit' and ancestor::div[@class='input-group-append']]"));
+                By.xpath("//div[@class='input-group-append']//button[@type='submit']"));
         utils.driver.findElement(
-                By.xpath("//button[@type='submit' and ancestor::div[@class='input-group-append']]")).click();
+                By.xpath("//div[@class='input-group-append']//button[@type='submit']")).click();
     }
 
     public void proceedToCheckout() {
