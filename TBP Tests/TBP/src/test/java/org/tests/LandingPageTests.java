@@ -19,10 +19,12 @@ public class LandingPageTests extends BaseTest {
     }
 
     @Test
+    @DisplayName("Visual test with Applitools")
     public void visualTest() {
-        webDriver.findElement(By.xpath(LandingPage.COOKIE_ACCEPT)).click();
-        Eyes eyes = new Eyes();
-        eyes.setApiKey(System.getenv("AppliAPI"));
+        LandingPage.acceptCookies();
+        Eyes eyes = new Eyes(testRunner);
+        eyeConfig.setApiKey(System.getenv("AppliAPI"));
+        eyes.setConfiguration(eyeConfig);
         eyes.open(webDriver, "Brand Place",
                 "Landing Page Visual test",
                 new RectangleSize(1500, 1000));
@@ -80,7 +82,7 @@ public class LandingPageTests extends BaseTest {
         webDriver.manage().deleteAllCookies();
         Assertions.assertTrue(Actions.isClickable(webDriver.findElement(By.xpath(LandingPage.COOKIE_ACCEPT))));
 
-        webDriver.findElement(By.xpath(LandingPage.COOKIE_ACCEPT)).click();
+        LandingPage.acceptCookies();
 
         Assertions.assertFalse(webDriver.findElement(By.xpath(LandingPage.COOKIE_POPUP)).isDisplayed());
         Assertions.assertFalse(webDriver.findElement(By.xpath(LandingPage.COOKIE_ACCEPT)).isDisplayed());

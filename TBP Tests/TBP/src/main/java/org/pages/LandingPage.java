@@ -19,7 +19,9 @@ public class LandingPage {
     public static final String ACCEPT_TERMS = "//div[@class='mf-checkbox-option']";
     public static final String SEND_REQUEST = "//button[@type='submit']";
 
-    public void acceptCookies(WebDriver webDriver) {
+    public static void acceptCookies() {
+        WebDriver webDriver = Actions.getDriver();
+        webDriver.manage().deleteAllCookies();
         if (Actions.isClickable(webDriver.findElement(By.xpath(COOKIE_ACCEPT))))
             webDriver.findElement(By.xpath(COOKIE_ACCEPT)).click();
     }

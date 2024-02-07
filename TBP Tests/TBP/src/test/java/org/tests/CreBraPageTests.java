@@ -15,10 +15,9 @@ public class CreBraPageTests extends BaseTest {
 
     @Test
     public void visualTest() {
-        webDriver.manage().deleteAllCookies();
-        webDriver.findElement(By.xpath(LandingPage.COOKIE_ACCEPT)).click();
+        LandingPage.acceptCookies();
         Eyes eyes = new Eyes();
-        eyes.setApiKey(System.getenv("AppliAPI"));
+        eyes.setConfiguration(eyeConfig);
         eyes.open(webDriver, "Brand Place",
                 "Creative Branding Visual test",
                 new RectangleSize(1500, 1000));
