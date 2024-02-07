@@ -1,5 +1,6 @@
 package org.tests;
 
+import com.applitools.eyes.selenium.Eyes;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.condition.DisabledIf;
 import org.junit.jupiter.api.condition.DisabledIfEnvironmentVariable;
@@ -13,7 +14,9 @@ import java.util.Properties;
 public class BaseTest {
     static Properties p = new Properties();
     static String targetUrl = "notSet";
+
     public static WebDriver webDriver;
+
 
     BaseTest(String url) {
         p.setProperty("browser", "chrome");

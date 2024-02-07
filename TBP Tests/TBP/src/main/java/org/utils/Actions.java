@@ -14,6 +14,10 @@ public class Actions {
         driver = in;
     }
 
+    public static WebDriver getDriver() {
+        return driver;
+    }
+
     public static boolean isClickable(WebElement el) {
         try {
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
@@ -32,4 +36,6 @@ public class Actions {
             return true;
         }
     }
+
+
 }
